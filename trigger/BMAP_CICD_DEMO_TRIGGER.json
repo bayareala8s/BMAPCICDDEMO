@@ -2,7 +2,7 @@
 	"name": "BMAP_CICD_DEMO_TRIGGER",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
