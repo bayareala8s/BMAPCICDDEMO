@@ -3,9 +3,36 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "EmailNotification",
+				"name": "EmailNotification_test",
 				"type": "WebActivity",
 				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-98.westus.logic.azure.com:443/workflows/ebe7757cf06d4904866a0fbfb3ad182a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=A0ri5bPIqWxprT1S1qB4COkdlpCEz6kXuwpe7YF5iqA",
+					"method": "POST",
+					"body": {
+						"File": "https://gcdmepidev1c.blob.core.windows.net/gcdmepi/IRMS_PQC_Data%2Foutput%2Fcohort_details.csv"
+					}
+				}
+			},
+			{
+				"name": "EmailNotification_test_copy1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "EmailNotification_test",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
